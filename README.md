@@ -1,4 +1,8 @@
 # DLS-Devops-Projects
+
 A repository for DLS group
 
-[git](https://media.giphy.com/media/487L0pNZKONFN01oHO/giphy.gif)
+A group of DevOps enthusiasts
+
+![m2](https://i.pinimg.com/originals/47/fd/28/47fd2856377747c0f51b0adcf3050791.gif)
+
