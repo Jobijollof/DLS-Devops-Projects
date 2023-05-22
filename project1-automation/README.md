@@ -2,11 +2,19 @@
 
 - Continuation of [project 1](https://github.com/Jobijollof/DLS-Devops-Projects/tree/main/project1-Networktop)
 
-Create a CloudFormation template. The template should define the VPC, public subnet, and private subnet.
-Upload the CloudFormation template.
-Create a CloudFormation stack. The stack will create the VPC, public subnet, and private subnet.
+- Create a CloudFormation template. 
+
+- The template should define the VPC, public subnet, and private subnet.
+
+- Upload the CloudFormation template.
+
+- Create a CloudFormation stack. 
+
+- The stack will create the VPC, public subnet, and private subnet.
 
 ![vpc](./images/cloud1.png)
+
+- Cloudformation template in Yaml format.
 
 ![vpc](./images/yml-template.png)
 
@@ -19,5 +27,19 @@ Create a CloudFormation stack. The stack will create the VPC, public subnet, and
 ![vpc](./images/cloud-5.png)
 
 ![vpc](./images/complete%20home%20work.png)
+
+- Vpc
+
+![stack](./images/vpc-created.png)
+
+- Public subnet
+
+![stack](./images/sub-net1.png)
+
+- Private Subnet
+
+![stack](./images/subnet-private.png)
+
+
 
 
