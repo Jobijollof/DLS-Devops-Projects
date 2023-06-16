@@ -5,6 +5,9 @@
 ![task](./images/assignmet2i.png)
 
 
+![architecture](./images/architecture.png)
+
+
 Requirements:
 
 - AWS free tier
@@ -33,7 +36,7 @@ Let’s call our "my-project2-vpc" project  and use the 10.10.0.0/16 network for
 ![ease](./images/vpc-more4.png)
 
 
-![ease](./images/vpc-more5.png)
+![ease](./images/correct-vpc.png)
 
 ### Step 2: Create Security Groups:
 
@@ -49,7 +52,7 @@ Now that our VPC and network resources have been created we can create a launch 
 
 - Allow incoming traffic on ports 80 and 443 from any source (0.0.0.0/0).
 
-![mine](./images/ALB-SG.png)
+![mine](./images/ALB-SGnew.png)
 
 2. Create an ASG Security Group:
 
@@ -57,7 +60,7 @@ Now that our VPC and network resources have been created we can create a launch 
 
 - Configure inbound rules to only allow traffic from the ALB Security Group.
 
-![mine](./images/ASG.png)
+![mine](./images/ASG-SGnew.png)
 
 
 By configuring the inbound rule to only allow traffic from the ALB Security Group, we  are ensuring that only the Application Load Balancer can send traffic to the instances within the Auto Scaling Group (ASG). This provides a secure and controlled access mechanism for incoming requests to our ASG.
@@ -85,6 +88,16 @@ By configuring the inbound rule to only allow traffic from the ALB Security Grou
 
 - Associate the ASG Security Group created earlier.
 
+![sg](./images/template-new1.png)
+
+
+![sg](./images/template-new2.png)
+
+
+![never](./images/template-new3.png)
+
+
+
 
 ### Step 4: Create an Auto Scaling Group (ASG)
 
@@ -96,11 +109,39 @@ By configuring the inbound rule to only allow traffic from the ALB Security Grou
 
 - Select the Launch Configuration created earlier.
 
-- Set the desired capacity and maximum size to 2 (to stay within the free tier).
+
 
 - Choose the private subnet created in Step 1.
 
 - Associate the ASG with the ASG Security Group.
 
+- Select “Create a target group” under “Listeners and routing” and leave the default.
+
+- Click  Next.
+
+- Set the desired capacity and maximum size to 2 (to stay within the free tier).
+
 - Enable scaling policies based on desired metrics (e.g., CPU utilization).
 
+- Review and create Auto scaling group
+
+![new](./images/ASG-2.png)
+
+
+You can go to your EC2 instances section in the console to confirm.
+
+![goup](./images/ASG-10.png)
+
+
+At this pointt, our web apps can receive inbound traffic via the security group we created.
+However, our load balance does not have the security group applied.
+Let’s go to our load balancer and apply the group.
+
+### Step 5: Create an Application Load Balancer (ALB)
+
+- Within the EC2 service, navigate to Load Balancers.
+Create a new Application Load Balancer:
+Configure the ALB to listen on ports 80 and 443.
+Assign the ALB to the ALB Security Group created earlier.
+Specify the public subnet created in Step 1.
+Configure health checks and any desired additional settings.
